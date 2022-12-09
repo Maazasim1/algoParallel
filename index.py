@@ -4,7 +4,7 @@ from flask import request
 import math
 from time import sleep
 from flask_cors import CORS
-import jsonify
+import flask import jsonify
 
 arr=[None]*10
 
