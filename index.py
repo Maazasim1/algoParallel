@@ -32,13 +32,15 @@ CORS(app)
 @app.route('/', methods=['POST'])
 def get_array_and_sort():
     array = request.json['array']
+    if not array:
+        return{'sorted':[0]}
     size = len(array)
     print(size)
 
     arr = bucket_sort_parallel(array, size, [])
     sleep(0.001)
     for i in range(size):
-        #sort buckets
+        # sort buckets
         arr[i].sort()
         k = 0
         finalArray = [None] * size
