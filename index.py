@@ -37,7 +37,7 @@ def getArrayAndSort():
     array=request.json['array']
     bucketSortParallel(array)
     sleep(0.001)
-    return arr
+    return {'sorted':arr}
 
 
         
