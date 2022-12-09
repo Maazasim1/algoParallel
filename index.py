@@ -3,6 +3,9 @@ from flask import Flask
 from flask import request
 import math
 from time import sleep
+from flask import response
+from flask_cors import CORS
+
 
 arr=[None]*10
 
@@ -30,6 +33,8 @@ def bucketSortParallel(buckets):
 
 
 app=Flask(__name__)
+CORS(app)
+
 
 @app.route('/',methods = ['POST'])
 
@@ -37,7 +42,7 @@ def getArrayAndSort():
     array=request.json['array']
     bucketSortParallel(array)
     sleep(0.001)
-    return arr
+    return {'sorted':arr}
 
 
         
