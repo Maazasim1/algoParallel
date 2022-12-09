@@ -4,6 +4,7 @@ from flask import request
 import math
 from time import sleep
 from flask_cors import CORS
+import jsonify
 
 arr=[None]*10
 
@@ -39,7 +40,7 @@ def getArrayAndSort():
     array=request.json['array']
     bucketSortParallel(array)
     sleep(0.001)
-    return {'sorted':arr}
+    return jsonify({'sorted':arr})
 
 
         
